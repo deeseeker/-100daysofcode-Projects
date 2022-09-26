@@ -44,8 +44,7 @@ easy_password = choice_letters + choice_numbers + choice_symbols
 print("Your easy level generated password is", easy_password)
 
 
-# print(password_list)
-# hard_password = random.shuffle(password_list)
+
 
 hard_password = ''
 for character in password_list:
