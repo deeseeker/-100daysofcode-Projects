@@ -42,7 +42,7 @@ def report():
     print('milk:', f"{resources['milk']}ml")
     print('coffee:', f"{resources['coffee']}g")
 
-def check_resources(coffee_type):
+def check_resource(coffee_type):
     ingredients = MENU[coffee_type]['ingredients']
     if coffee_type != 'espresso':
         water = ingredients['water']
@@ -63,6 +63,35 @@ def check_resources(coffee_type):
             print("Sorry, there is not enough coffee")
 
 
+#TO DO : we need to build a resource regulator
+# TO DO: coin processor
+
+def converter(quarters,dimes,nickles, pennies):
+    """converts coins to dollars"""
+    dollars = (0.25*quarters) + (0.10*dimes) + (0.05*nickles) + (0.01*pennies)
+    return dollars
+def check_transaction(coffee_type, payment):
+    cost = MENU[coffee_type]['cost']
+    if payment < cost:
+        print("Sorry that's not enough money. Money refunded.")
+    elif payment > cost:
+        change = payment - cost
+        print(f"Here is ${change} in change")
+        print(f"Here is your {coffee_type}. Enjoy!")
+    else:
+        resources["Money"] = f"${cost}"
+        print(f"Here is ${change} in change")
+        print(f"Here is your {coffee_type}. Enjoy!")
+
+def resource_manager(coffee_type):
+    ingredients = MENU[coffee_type]['ingredients']
+    if coffee_type != 'espresso':
+        resources['water'] -= ingredients['water']
+        resources["milk"] -= ingredients['milk']
+        resources["coffee"] -= ingredients['coffee']
+    else:
+        resources['water'] -= ingredients['water']
+        resources["coffee"] -= ingredients['coffee']
 
 
 is_off = False
@@ -71,6 +100,8 @@ while not is_off:
     if choice == 'report':
         report()
         continue
+
+    #process users drink:
     if choice == 'espresso':
         check_resource(choice)
 
@@ -83,6 +114,11 @@ while not is_off:
     dimes = int(input("how many dimes?: "))
     nickles = int(input("how many nickles?: "))
     pennies = int(input("how many pennies?: "))
+    payment = converter(quarters,dimes,nickles,pennies)
+    check_transaction(choice,payment)
+    resource_manager(choice)
+
+
 
     if input('Turn off the Cofee Machine:').lower() == 'off':
         is_off = True
