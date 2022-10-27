@@ -1,6 +1,6 @@
 from art import logo
 
-alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
 def caesar(start_text, shift_amount, cipher_direction):
 
@@ -13,7 +13,7 @@ def caesar(start_text, shift_amount, cipher_direction):
       for char in element:
           if char in alphabet:
               position = alphabet.index(char)
-              new_position = (position + shift_amount) % 52 #take into account out of index range
+              new_position = (position + shift_amount) % 26 #take into account out of index range
               end_text[text_pos] += alphabet[new_position]
           else:
               end_text[text_pos] += element

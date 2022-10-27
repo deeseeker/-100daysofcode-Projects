@@ -117,7 +117,7 @@ while not is_off:
     payment = converter(quarters,dimes,nickles,pennies)
     check_transaction(choice,payment)
     resource_manager(choice)
-
+ 
 
 
     if input('Turn off the Cofee Machine:').lower() == 'off':
