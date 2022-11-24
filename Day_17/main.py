@@ -24,14 +24,33 @@ colors = ["red", "blue", "green", "pink", "cyan", "brown", "black", "purple", "y
 #random walk
 directions = [0, 90, 180, 270]
 
-t.pensize(10)
-for i in range(100):
-    color = random.choice(colors)
-    t.pencolor(color)
-    direction = random.choice(directions)
-    t.forward(30)
-    t.left(direction)
+# t.pensize(10)
+# for i in range(100):
+#     color = random.choice(colors)
+#     t.pencolor(color)
+#     direction = random.choice(directions)
+#     t.forward(30)
+#     t.left(direction)
 
+# spiral
+t.circle(100)
+t.tiltangle(-10)
+t.circle(100)
+t.tiltangle(-20)
+t.circle(100)
+t.tiltangle(-30)
+t.circle(100)
+t.tiltangle(-40)
+t.circle(100)
+t.tiltangle(-50)
+t.circle(100)
+t.tiltangle(-60)
+t.circle(100)
+t.tiltangle(-70)
+t.circle(100)
+t.tiltangle(-80)
+t.circle(100)
+t.tiltangle(-90)
 
 
 screen = Screen()
